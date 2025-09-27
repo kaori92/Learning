@@ -1,4 +1,4 @@
-package com.example.learningnew
+package com.example.learningnew.workmanager
 
 import android.content.Context
 import android.content.pm.ServiceInfo
@@ -9,6 +9,7 @@ import androidx.work.CoroutineWorker
 import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
+import com.example.learningnew.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext

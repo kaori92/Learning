@@ -1,4 +1,4 @@
-package com.example.learningnew
+package com.example.learningnew.workmanager
 
 object WorkerKeys {
     const val ERROR_MSG = "errorMsg"
