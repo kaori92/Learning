@@ -1,5 +1,6 @@
 package com.example.learningnew.contactsroom
 
+import androidx.compose.material3.LocalTextStyle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -10,6 +11,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
 
 class ContactViewModel(
     private val dao: ContactDao
@@ -59,7 +61,9 @@ class ContactViewModel(
                 val contact = Contact(
                     firstName = firstName,
                     lastName = lastName,
-                    phoneNumber = phoneNumber
+                    phoneNumber = phoneNumber,
+                    createdAt = LocalDateTime.now(),
+                    gender = Gender.NOT_PROVIDED
                 )
                 viewModelScope.launch {
                     dao.upsertContact(contact)

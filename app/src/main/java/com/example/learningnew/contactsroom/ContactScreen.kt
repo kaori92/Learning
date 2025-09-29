@@ -84,6 +84,7 @@ fun ContactScreen(
 							fontSize = 20.sp
 						)
 						Text(text = contact.phoneNumber, fontSize = 12.sp)
+						Text(text = "Last updated at ${LocalDateTimeConverter().timeToString(contact.createdAt)}", fontSize = 12.sp)
 					}
 					
 					IconButton(onClick = { onEvent(ContactEvent.DeleteContact(contact)) }) {

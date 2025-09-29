@@ -19,7 +19,10 @@ class ContactsActivity : ComponentActivity() {
 			applicationContext,
 			ContactDatabase::class.java,
 			"contacts.db"
-		).build()
+		)
+			.addMigrations(MIGRATION_3_4)
+			.fallbackToDestructiveMigration()
+			.build()
 	}
 	private val viewModel by viewModels<ContactViewModel>(
 		factoryProducer = {

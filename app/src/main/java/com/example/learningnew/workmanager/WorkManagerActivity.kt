@@ -26,6 +26,7 @@ import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
+import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
 import com.example.learningnew.ui.theme.LearningNewTheme
 
@@ -97,9 +98,7 @@ class WorkManagerActivity : ComponentActivity() {
 				) {
 					imageUri.value?.let { uri ->
 						Image(
-							painter = rememberImagePainter(
-								data = uri,
-							),
+							painter = rememberAsyncImagePainter(model = uri),
 							contentDescription = null
 						)
 					}
