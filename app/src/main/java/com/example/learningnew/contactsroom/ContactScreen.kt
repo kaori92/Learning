@@ -23,8 +23,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import java.time.LocalDateTime
 
 @Composable
 fun ContactScreen(
@@ -98,4 +100,31 @@ fun ContactScreen(
 			}
 		}
 	}
+}
+
+@Preview
+@Composable
+fun ContactScreenPreview() {
+	val sampleState = ContactState(
+		contacts = listOf(
+			Contact(
+				id = 1,
+				firstName = "Jan",
+				lastName = "Kowalski",
+				phoneNumber = "123-456-789",
+				createdAt = LocalDateTime.now(),
+				gender = Gender.NOT_PROVIDED
+			)
+		),
+		firstName = "",
+		lastName = "",
+		phoneNumber = "",
+		isAddingContact = false,
+		sortType = SortType.FIRST_NAME
+	)
+	
+	ContactScreen(
+		state = sampleState,
+		onEvent = {}
+	)
 }
