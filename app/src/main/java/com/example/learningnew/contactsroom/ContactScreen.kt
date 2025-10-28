@@ -21,6 +21,10 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -33,6 +37,24 @@ fun ContactScreen(
 	state: ContactState,
 	onEvent: (ContactEvent) -> Unit
 ) {
+	val contact = Contact(
+		firstName = "First",
+		id = 121,
+		lastName = "Last",
+		phoneNumber = "1232434",
+		createdAt = LocalDateTime.now(),
+		gender = Gender.MALE
+	)
+	
+	val contactId = remember {contact.id}
+	var personId by remember { mutableStateOf(contact.id) }
+	
+	val counter = remember { mutableStateOf(0) }
+	val counterValue = counter.value
+	
+	var counterWithDelegate by remember { mutableStateOf(0) }
+	val counterValueWithDelegate = counterWithDelegate
+	
 	Scaffold(
 		floatingActionButton = {
 			FloatingActionButton(onClick = {
